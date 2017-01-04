@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}Gistbook{% endblock %}</title>
+  <script type="text/javascript"></script>
+  <script src="https://use.fontawesome.com/4d0cb8d848.js"></script>
+  <link rel="stylesheet" href="{{ request.static_url('expense_tracker:static/style.css') }}" type="text/css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="{{ request.route_url('home') }}">Home</a></li>
+      {% if request.authenticated_userid %}
+        <li><a href="{{ request.route_url('profile') }}">Profile</a></li>
+        <li><a href="{{ request.route_url('logout') }}">Log Out</a></li>
+      {% else %}
+        <li><a href="{{ request.route_url('register') }}">Register</a></li>
+        <li><a href="{{ request.route_url('login') }}">Log In</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+  {% block body %}
+  {% endblock %}
+  {% block javascript %}
+  {% endblock javascript %}
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+<div class="content">
+  <h1><span class="font-semi-bold">Pyramid</span> <span class="smaller">Alchemy scaffold</span></h1>
+
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {% for entry in ENTRIES %}
+                    <div class="post-preview">
+                        <a href="post.html">
+                            <h2 class="post-title"><a href="/journal/{{ entry['id'] }}">
+                                {{ entry['title'] }}
+                            </h2>
+                            <h3 class="post-subtitle">
+                                {{ entry['title1'] }}
+                            </h3>
+                        </a>
+                        <p class="post-meta">Posted by <a href="#">Ben Shields</a> {{ entry['creation_date'] }}</p>
+                    </div>
+                     <hr>
+                {% endfor %}
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                        <a href="#">Older Posts &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+
+  <p class="lead">Welcome to <span class="font-normal">{{project}}</span>, an&nbsp;application generated&nbsp;by<br>the <span class="font-normal">Pyramid Web Framework 1.7.3</span>.</p>
+</div>
+{% endblock content %}

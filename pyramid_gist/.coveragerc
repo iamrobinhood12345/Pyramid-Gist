@@ -1,0 +1,3 @@
+[run]
+source = pyramid_gist
+omit = pyramid_gist/test*
